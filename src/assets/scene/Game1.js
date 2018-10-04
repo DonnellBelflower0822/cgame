@@ -1,18 +1,17 @@
 import Common from './Common'
 import Yue from '../acotr/game1/Yue'
 import Yun from '../acotr/game1/Yun'
+import Bear from '../acotr/game1/Bear'
 
 export default class Game1 extends Common {
   constructor () {
     super()
     this.index = 0
+    // 题目的位置
+    this.optionPos = 1
   }
 
   enter (subject) {
-    let {
-      title,
-      li
-    } = subject[this.index]
     const group = new this.$group('game1')
     // 云
     const yun = Yun.getInstance().enter()
@@ -21,10 +20,12 @@ export default class Game1 extends Common {
     const yue = Yue.getInstance().enter()
     group.append(yue)
     // 标题
-    const titleL = this.initTitle(title)
-    group.append(titleL)
+    // const titleL = this.initTitle(title)
+    // group.append(titleL)
     // const options = this.initOptions(li)
     // group.append(options)
+    const subjectGroup = this.initSubject(subject[this.index])
+    group.append(subjectGroup)
     this.group = group
     this._initGroupAnimte()
     return group
@@ -56,10 +57,14 @@ export default class Game1 extends Common {
   }
 
   // 处理事件
-  triggerEvent (index) {
+  dealEvent (index) {
+    index += ''
+    this.activeOption(index)
     switch (index) {
-      case 1:
+      case '1':
         Yue.getInstance().min()
+        const bear = Bear.getInstance().healthSleep()
+        this.group.append(bear)
         break
     }
   }

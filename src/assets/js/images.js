@@ -1,4 +1,5 @@
-// import { pao } from '../data'
+import { ks_1 } from '../data/koushui'
+import { sleep_1 } from '../data/sleep'
 
 export default [
   // 主背景
@@ -19,6 +20,11 @@ export default [
   {
     id: 'arrow_right',
     src: 'img/arrow/an_right.png'
+  },
+  // 选项
+  {
+    id: 'option_1',
+    src: 'img/option/option_1.png'
   },
   {
     id: 'option_2',
@@ -49,9 +55,29 @@ export default [
   {
     id: 'yun_5',
     src: 'img/yun/yun_5.png'
+  },
+  {
+    id: 'yun_6',
+    src: 'img/yun/yun_6.png'
+  },
+  // 熊
+  {
+    id: 'bear_1',
+    src: 'img/bear/bear_1.png'
+  },
+  // 枕头
+  {
+    id: 'zt_1',
+    src: 'img/zhentou/zt_1.png'
+  },
+  // 口水
+  {
+    id: 'ks_1',
+    src: ks_1
+  },
+  // 睡觉
+  {
+    id: 'sleep_1',
+    src: sleep_1
   }
-  // {
-  //   id: 'pao',
-  //   src: pao
-  // }
 ]

@@ -65,13 +65,27 @@ export default {
     // 绑定处理事件
     bindEvent (element) {
       element = element.target
-      // console.log(element)
-      // this._game2()
-      // Game1.getInstance().triggerEvent(1)
+      if (!element || !element.id) {
+        return
+      }
+      // 处理左右按钮
+      let id = element.id
+      if (id === 'arrowLeft') {
+        this._game2()
+        return
+      }
+      switch (this.stage) {
+        case 'game1':
+          Game1.getInstance().dealEvent(element.id)
+          break
+        case 'game2':
+          break
+      }
+      this.showArrow()
     },
     // 显示按钮
-    showArrow () {
-      const arrow = Arrow.getInstance().enter(1)
+    showArrow (index) {
+      const arrow = Arrow.getInstance().enter(index)
       this.game.append(arrow)
     }
   },
