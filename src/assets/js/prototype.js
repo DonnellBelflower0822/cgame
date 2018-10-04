@@ -6,6 +6,11 @@ import {
   Label,
   Group
 } from 'spritejs'
+import { prototypeConfig } from './const'
+
+Object.keys(prototypeConfig).forEach(key => {
+  Vue.prototype[key] = prototypeConfig[key]
+})
 
 Vue.prototype.$sprite = Sprite
 Vue.prototype.$label = Label
