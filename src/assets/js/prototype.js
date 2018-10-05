@@ -7,11 +7,13 @@ import {
   Group
 } from 'spritejs'
 import { prototypeConfig } from './const'
+import { wait } from './tool'
 
 Object.keys(prototypeConfig).forEach(key => {
-  Vue.prototype[key] = prototypeConfig[key]
+  Vue.prototype[ key ] = prototypeConfig[ key ]
 })
 
+Vue.prototype.$wait = wait
 Vue.prototype.$sprite = Sprite
 Vue.prototype.$label = Label
 Vue.prototype.$group = Group

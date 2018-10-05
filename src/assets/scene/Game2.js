@@ -1,15 +1,12 @@
 import Common from './Common'
-import Yue from '../acotr/game1/Yue'
-import Yun from '../acotr/game1/Yun'
-import Bear from '../acotr/game1/Bear'
 
 export default class Game1 extends Common {
   constructor () {
     super()
+    // 当前场景号
     this.index = 0
     // 题目的位置
     this.optionPos = 1
-    this.choiced = false
   }
 
   // 进场
@@ -17,9 +14,6 @@ export default class Game1 extends Common {
     // 关键
     this.that = that
     const group = new this.$group('game1')
-    // 云
-    const yun = Yun.getInstance().enter()
-    group.append(yun)
     // 月亮
     const yue = Yue.getInstance().enter()
     group.append(yue)
@@ -38,44 +32,14 @@ export default class Game1 extends Common {
       this.that.goto(index)
       return
     }
-    if (this.choiced === index) {
-      return
-    }
     if (type === 'option') {
-      this.choiced = index
       switch (index) {
         case 0:
-          Yue.getInstance().min()
           const bear = Bear.getInstance().healthSleepEnter()
           this.bear = bear
           this.that.game.append(bear)
           break
       }
-    }
-  }
-
-  _initGroupAnimte (type = 'enter') {
-    if (type === 'enter') {
-      this.group.attr({
-        translate: [ this.clientWidth, 0 ]
-      })
-      this.group.animate([
-        {
-          translate: [ 0, 0 ]
-        }
-      ], {
-        duration: 300,
-        fill: 'forwards'
-      })
-    } else {
-      this.group.animate([
-        {
-          translate: [ -this.clientWidth, 0 ]
-        }
-      ], {
-        duration: 300,
-        fill: 'forwards'
-      })
     }
   }
 

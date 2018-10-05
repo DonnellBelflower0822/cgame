@@ -6,7 +6,7 @@ export default class Yun extends Base {
     const yun1 = new this.$sprite('yun_1')
     yun1.attr({
       scale: 0.5,
-      pos: [this.clientWidth / 2, 100]
+      pos: [ this.clientWidth / 2, 100 ]
     })
     yun1.animate([
       {
